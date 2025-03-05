@@ -17,10 +17,10 @@ ListNameTemplateForCourse : "Canvas - {course.name}"
 ListNameForNotification : "Canvas 通知"
 # 若 ListNameMode 为 Category，则可指定创建 Todo 列表的名称
 ListNamesForCategory : 
-  QuizListName : "Canvas 测验"
-  DiscussionListName : "Canvas 讨论"
-  AssignmentListName : "Canvas 作业"
-  AnouncementListName : "Canvas 公告"
+  QuizListName : "Canvas"
+  DiscussionListName : "Canvas"
+  AssignmentListName : "Canvas"
+  AnouncementListName : "Canvas"
 # 不处理 14 天前过期的项目
 # 如果你是在学期中开始使用本程序，建议设置为 true
 IgnoreTooOldItems : false
@@ -50,7 +50,7 @@ AnouncementConfig :
   CreateRemind : true
   # 若 Todo 列表内无当前的公告，
   # 则把创建的新待办事项的重要性设置为 SetImportance 指定的值
-  CreateImportance : false
+  CreateImportance : ture
   # 若 Todo 列表内已存在当前的公告，
   # 且已存在待办事项的标题与 TitleTemplate 所指定的不一致，
   # 则更新待办事项的标题
@@ -71,7 +71,7 @@ AnouncementConfig :
   # 若 Todo 列表内已存在当前的公告，
   # 且已存在待办事项的重要程度与 SetImportance 指定的不一致，
   # 则更新已存在待办事项的重要程度
-  UpdateImportance : false
+  UpdateImportance : true
   # 指定待办事项的标题模板
   # 可用的替换参数：
   # {course.name} -> 课程名
@@ -82,7 +82,7 @@ AnouncementConfig :
   # {anouncement.author} -> 公告发布者
   TitleTemplate : "{course.name} - {anouncement.title}"
   # 指定待办事项的重要性：true 为重要
-  SetImportance : false
+  SetImportance : true
   # 指定延后提醒的时间间隔（此选项对滴答清单无效）
   # 格式：[d.]hh:mm:ss[.fffffff]
   # d 可选天数，不带前导零。
@@ -90,7 +90,7 @@ AnouncementConfig :
   # mm 分钟数，范围从“00”到“59”。
   # ss 秒数，范围从“0”到“59”。
   # fffffff 可选毫秒数，范围从“0010000”到“9990000”。
-  RemindAfter : 00:05:00.00
+  RemindAfter : 00:15:00.00
 # Canvas 作业 配置
 AssignmentConfig : 
   # 是否将 Canvas 作业同步到 Todo
@@ -106,7 +106,7 @@ AssignmentConfig :
   # 则在创建的新待办事项的步骤里添加提交和分数信息
   CreateScoreAndCommit : true
   CreateAttachments : true
-  CreateImportance : false
+  CreateImportance : true
   # 同步助教和老师的评论
   CreateComments : true
   UpdateTitle : true
@@ -117,7 +117,7 @@ AssignmentConfig :
   # 且已存在待办事项的提交和分数信息与最新的不一致，
   # 则更新已存在待办事项的提交和分数信息
   UpdateScoreAndCommit : true
-  UpdateImportance : false
+  UpdateImportance : true
   UpdateComments : true
   # 指定待办事项的标题模板
   # 可用的替换参数：
@@ -127,7 +127,7 @@ AssignmentConfig :
   # {course.originalname} -> 原始课程名
   # {assignment.title} -> 作业标题
   TitleTemplate : "{course.name} - {assignment.title}"
-  SetImportance : false
+  SetImportance : true
   # 指定待办事项过期时间的来源
   # 可选值: due_at | lock_at
   # due_at 表示将作业的过期时间作为待办事项的过期时间
@@ -153,7 +153,7 @@ AssignmentConfig :
   # mm 分钟数，范围从“00”到“59”。
   # ss 秒数，范围从“0”到“59”。
   # fffffff 可选毫秒数，范围从“0010000”到“9990000”。
-  BeforeTimeSpan : 1.00:00:00.00
+  BeforeTimeSpan : 10:00:00.00
 # Canvas 测验 配置
 QuizConfig : 
   # 是否将 Canvas 测验同步到 Todo
@@ -169,13 +169,13 @@ QuizConfig :
   # 则在创建的新待办事项的步骤里添加提交和分数信息
   CreateScoreAndCommit : true
   CreateAttachments : true
-  CreateImportance : false
+  CreateImportance : true
   UpdateTitle : true
   UpdateContent : true
   UpdateDueDate : true
   UpdateRemind : true
   UpdateScoreAndCommit : true
-  UpdateImportance : false
+  UpdateImportance : true
   # 指定待办事项的标题模板
   # 可用的替换参数：
   # {course.name} -> 课程名
@@ -184,7 +184,7 @@ QuizConfig :
   # {course.originalname} -> 原始课程名
   # {quiz.title} -> 测验标题
   TitleTemplate : "{course.name} - {quiz.title}"
-  SetImportance : false
+  SetImportance : true
   # 指定待办事项过期时间的来源
   # 同 Assignment 的配置
   DueDateMode : lock_at
@@ -204,7 +204,7 @@ DiscussionConfig :
   # 则把创建的新待办事项的提醒时间设置为 当前时间+RemindAfter
   CreateRemind : true
   CreateAttachments : true
-  CreateImportance : false
+  CreateImportance : true
   UpdateTitle : true
   UpdateContent : true
   # 若 Todo 列表内已存在当前的讨论，
@@ -216,7 +216,7 @@ DiscussionConfig :
   # 则更新待办事项的提醒时间
   # ⚠注意：此选项应当保持 false（思考一下为什么）
   UpdateRemind : false
-  UpdateImportance : false
+  UpdateImportance : true
   # 指定待办事项的标题模板
   # 可用的替换参数：
   # {course.name} -> 课程名
@@ -225,21 +225,21 @@ DiscussionConfig :
   # {course.originalname} -> 原始课程名
   # {discussion.title} -> 讨论标题
   TitleTemplate : "{course.name} - {discussion.title}"
-  SetImportance : false
+  SetImportance : true
   # （此选项对滴答清单无效）
-  RemindAfter : 00:05:00.00
+  RemindAfter : 00:15:00.00
 NotificationConfig : 
   # 是否将全局通知（控制面板顶部出现的横幅）同步到 Todo
   Enabled : true
   CreateContent : true
   CreateDueDate : true
   CreateRemind : true
-  CreateImportance : false
+  CreateImportance : true
   UpdateTitle : false
   UpdateContent : false
   UpdateDueDate : true
   UpdateRemind : false
-  UpdateImportance : false
+  UpdateImportance : true
   # 可用的替换参数：
   # {notification.title} -> 通知标题
   TitleTemplate : "{notification.title}"
