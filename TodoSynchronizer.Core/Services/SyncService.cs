@@ -174,7 +174,18 @@ namespace TodoSynchronizer.Core.Services
                             var url = todoTask.LinkedResources.First().WebUrl;
                             Uri uri;
                             if (Uri.TryCreate(url, UriKind.Absolute, out uri))
-                                dicUrl.Add(url, todoTask);
+                            {
+                                // 添加重复性检查
+                                if (!dicUrl.ContainsKey(url))
+                                {
+                                    dicUrl.Add(url, todoTask);
+                                }
+                                else
+                                {
+                                // 记录或处理重复情况
+                                OnReportProgress.Invoke(new SyncState(SyncStateEnum.Warning, $"Duplicate URL skipped: {url}"));
+                                }
+                            }
                         }
                 }
             }
