@@ -183,7 +183,7 @@ namespace TodoSynchronizer.Core.Services
                                 else
                                 {
                                 // 记录或处理重复情况
-                                OnReportProgress.Invoke(new SyncState(SyncStateEnum.Warning, $"Duplicate URL skipped: {url}"));
+                                Message = "重复的课程url: " + url;
                                 }
                             }
                         }
