@@ -183,7 +183,7 @@ namespace TodoSynchronizer.Core.Services
                                 else
                                 {
                                 // 记录或处理重复情况
-                                Message = "重复的课程url: " + url;
+                                Message = "存在重复的课程url: " + url;
                                 }
                             }
                         }
